@@ -1,0 +1,110 @@
+/* Set the background color of the body */
+body {
+    background-color: rgb(106, 146, 162);
+}
+  /* Style the header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+  /* Style the navigation menu */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+nav li {
+    float: left;
+}
+nav a {
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+nav a:hover {
+    background-color: #ddd;
+    color: #333;
+}
+  /* Style the main content area */
+main {
+    padding: 20px;
+}
+section {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+h2 {
+    color: #333;
+    font-size: 24px;
+}
+p{
+    color: #666;
+    font-size: 16px;
+    line-height: 1.5;
+}
+ul {
+    list-style-type: disc;
+    color: #666;
+    font-size: 16px;
+    line-height: 1.5;
+}
+  /* Style the footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+form {
+    display: flex;
+    align-items: center;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    width: 200px;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #3e8e41;
+}
+
+/* student portal */
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav li a {
+    color: #f30d0d;
+    text-decoration: none;
+    padding: 5px;
+}
+
+main {
+    padding: 20px;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="portal-section">
+        <h3>Campus Events</h3>
+        <p>Stay updated with campus events, workshops, seminars, and social activities happening throughout the year. RSVP and get involved.</p>
+        <a href="#" class="portal-button">View Events</a>
+      
+        <div class="cgpa-calculator">
+          <h3>CGPA Converter</h3>
+          <form id="cgpa-form">
+            <label for="bangladesh-cgpa">Bangladesh CGPA:</label>
+            <input type="number" id="bangladesh-cgpa" step="0.01" min="0" max="4.00" required>
+            <button type="button" id="calculate-btn">Calculate</button>
+          </form>
+          <div id="cgpa-results">
+            <h4>Converted CGPA:</h4>
+            <ul>
+              <li><span class="country">Germany:</span> <span class="converted-cgpa"></span></li>
+              <li><span class="country">Canada:</span> <span class="converted-cgpa"></span></li>
+              <li><span class="country">USA:</span> <span class="converted-cgpa"></span></li>
+              <li><span class="country">Australia:</span> <span class="converted-cgpa"></span></li>
+              <li><span class="country">France:</span> <span class="converted-cgpa"></span></li>
+            </ul>
+          </div>
+        </div>
+    </div>
+      
+    <script>
+        // Get the necessary elements
+        const bangladeshCGPAInput = document.getElementById('bangladesh-cgpa');
+        const calculateBtn = document.getElementById('calculate-btn');
+        const convertedCGPAElements = document.querySelectorAll('.converted-cgpa');
+      
+        // CGPA conversion rates for different countries
+        const conversionRates = {
+          germany: 1.8,
+          canada: 2.5,
+          usa: 4.0,
+          australia: 3.7,
+          france: 2.3,
+        };
+      
+        // Function to calculate and display the converted CGPA
+        function calculateCGPA() {
+          const bangladeshCGPA = parseFloat(bangladeshCGPAInput.value);
+      
+          convertedCGPAElements.forEach((element) => {
+            const country = element.parentNode.querySelector('.country').textContent.trim().toLowerCase();
+            const convertedCGPA = (bangladeshCGPA * conversionRates[country]).toFixed(2);
+            element.textContent = convertedCGPA;
+          });
+        }
+      
+        // Add event listener to the calculate button
+        calculateBtn.addEventListener('click', calculateCGPA);
+    </script>
+      
+</body>
+</html>

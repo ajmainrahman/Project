@@ -21,10 +21,10 @@
 				<li><a href="#info">Study, Research & Teach</a></li>
 				<li><a href="#contact">Contact</a></li>
 			</ul>
-			<form>
-				<input type="text" placeholder="Search...">
+			<form id="search-form">
+				<input type="text" id="search-input" placeholder="Search...">
 				<button type="submit">Search</button>
-			</form>
+			</form>			
 			<div class="user-actions">
 				<a href="#">Login</a>
 				<span> | </span>
@@ -66,27 +66,27 @@
 			<h2>Country List</h2>
 			<ul>
 				<li>
-					<img src="canada.jpg" alt="United States">
+					<img src="usa.jpg" alt="United States">
 					<h3>United States</h3>
 					<button onclick="alert('')">Universities Details</button>
 				</li>
 				<li>
-					<img src="img/australia.jpg" alt="Australia">
+					<img src="australia.jpg" alt="Australia">
 					<h3>Australia</h3>
 					<button onclick="alert('')">Universities Details</button>
 				</li>
 				<li>
-					<img src="img/germany.png" alt="Germany">
+					<img src="germany.png" alt="Germany">
 					<h3>Germany</h3>
 					<button onclick="alert('')">Universities Details</button>
 				</li>
 				<li>
-					<img src="img/canada.jpg" alt="Canada">
+					<img src="canada.jpg" alt="Canada">
 					<h3>Canada</h3>
 					<button onclick="alert('')">Universities Details</button>
 				</li>
 				<li>
-					<img src="img/france.jpg" alt="France">
+					<img src="france.jpg" alt="France">
 					<h3>France</h3>
 					<button onclick="alert('')">Universities Details</button>
 				</li>
@@ -98,7 +98,7 @@
 			<h2>Professor List</h2>
 			<ul class="professor-list">
 				<li>
-					<img src="/img/prof.webp" alt="Dr. John Smith">
+					<img src="prof.webp" alt="Dr. John Smith">
 					<div class="professor-info">
 						<h3 class="professor-name">Dr. John Smith</h3>
 						<p class="professor-expertise">Physics Expert</p>
@@ -108,7 +108,7 @@
 						Profile</button>
 				</li>
 				<li>
-					<img src="/img/prof2.webp" alt="Prof. Jane Doe">
+					<img src="prof2.webp" alt="Prof. Jane Doe">
 					<div class="professor-info">
 						<h3 class="professor-name">Prof. Jane Doe</h3>
 						<p class="professor-expertise">Literature Expert</p>
@@ -118,7 +118,7 @@
 						Profile</button>
 				</li>
 				<li>
-					<img src="/img/prof3.jpg" alt="Dr. David Johnson">
+					<img src="prof3.jpg" alt="Dr. David Johnson">
 					<div class="professor-info">
 						<h3 class="professor-name">Dr. David Johnson</h3>
 						<p class="professor-expertise">Computer Science Expert</p>
@@ -203,23 +203,21 @@
 					<h3>CGPA Converter</h3>
 					<p>Stay updated with campus events, workshops, seminars, and social activities happening throughout
 						the year. RSVP and get involved.</p>
-					<div class="cgpa-calculator">
-						<form id="cgpa-form">
-							<label for="bangladesh-cgpa">Bangladeshi CGPA:</label>
-							<input type="number" id="bangladesh-cgpa" step="0.01" min="0" max="4.00" required>
-							<button type="button" id="calculate-btn">Calculate</button>
-						</form>
-						<div id="cgpa-results">
-							<h4>Converted CGPA:</h4>
-							<ul>
-								<li><span class="country">Germany:</span> <span class="converted-cgpa"></span></li>
-								<li><span class="country">Canada:</span> <span class="converted-cgpa"></span></li>
-								<li><span class="country">USA:</span> <span class="converted-cgpa"></span></li>
-								<li><span class="country">Australia:</span> <span class="converted-cgpa"></span></li>
-								<li><span class="country">France:</span> <span class="converted-cgpa"></span></li>
-							</ul>
+						<div class="calculator">
+							<!-- <label for="bangladesh-cgpa">CGPA:</label> <br> -->
+							<input type="number" id="bangladesh-cgpa" step="0.01" min="2.00" max="4.00" required> <br> <br>
+							<button id="calculate-btn">Calculate</button> <br>
+							<div id="gpa-results">
+								<h3>Converted GPAs:</h3>
+								<ul>
+									<li><span class="country">Australia:</span> <span id="australia-gpa"></span></li>
+									<li><span class="country">Germany:</span> <span id="germany-gpa"></span></li>
+									<li><span class="country">USA:</span> <span id="usa-gpa"></span></li>
+									<li><span class="country">France:</span> <span id="france-gpa"></span></li>
+									<li><span class="country">Canada:</span> <span id="canada-gpa"></span></li>
+								</ul>
+							</div>
 						</div>
-					</div>
 				</div>
 			</div>
 		</section>

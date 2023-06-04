@@ -1,27 +1,35 @@
+// Search Funcation
+function search() {
+    var searchInput = document.getElementById("search-input").value;
+    alert("Performing search for: " + searchInput);
+    // Perform search operation based on the searchInput value
+}
+
 // Get the necessary elements
 const bangladeshCGPAInput = document.getElementById('bangladesh-cgpa');
 const calculateBtn = document.getElementById('calculate-btn');
-const convertedCGPAElements = document.querySelectorAll('.converted-cgpa');
+const australiaGPAElement = document.getElementById('australia-gpa');
+const germanyGPAElement = document.getElementById('germany-gpa');
+const usaGPAElement = document.getElementById('usa-gpa');
+const franceGPAElement = document.getElementById('france-gpa');
+const canadaGPAElement = document.getElementById('canada-gpa');
 
-// CGPA conversion rates for different countries
-const conversionRates = {
-    germany: 1.8,
-    canada: 2.5,
-    usa: 4.0,
-    australia: 3.7,
-    france: 2.3,
-};
-
-// Function to calculate and display the converted CGPA
-function calculateCGPA() {
+// Function to calculate and display the converted GPAs
+function calculateGPAs() {
     const bangladeshCGPA = parseFloat(bangladeshCGPAInput.value);
 
-    convertedCGPAElements.forEach((element) => {
-        const country = element.parentNode.querySelector('.country').textContent.trim().toLowerCase();
-        const convertedCGPA = (bangladeshCGPA * conversionRates[country]).toFixed(2);
-        element.textContent = convertedCGPA;
-    });
+    const australiaGPA = (bangladeshCGPA * 3.7).toFixed(2);
+    const germanyGPA = (bangladeshCGPA * 1.8).toFixed(2);
+    const usaGPA = (bangladeshCGPA * 4.0).toFixed(2);
+    const franceGPA = (bangladeshCGPA * 2.3).toFixed(2);
+    const canadaGPA = (bangladeshCGPA * 2.5).toFixed(2);
+
+    australiaGPAElement.textContent = australiaGPA;
+    germanyGPAElement.textContent = germanyGPA;
+    usaGPAElement.textContent = usaGPA;
+    franceGPAElement.textContent = franceGPA;
+    canadaGPAElement.textContent = canadaGPA;
 }
 
 // Add event listener to the calculate button
-calculateBtn.addEventListener('click', calculateCGPA);
+calculateBtn.addEventListener('click', calculateGPAs);

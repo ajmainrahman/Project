@@ -21,10 +21,11 @@
 				<li><a href="#info">Study, Research & Teach</a></li>
 				<li><a href="#contact">Contact</a></li>
 			</ul>
-			<form id="search-form">
-				<input type="text" id="search-input" placeholder="Search...">
+			<form id="search-form" method="get">
+				<input type="text" id="search-input" placeholder="Search..." name="search">
 				<button type="submit">Search</button>
 			</form>
+			
 			<div class="user-actions">
 				<a href="#">Login</a>
 				<span> | </span>
@@ -263,7 +264,7 @@
 					have
 					regarding higher studies and the services we offer.</p>
 				<div id="contact-form">
-					<form action="conn.php" method="POST">
+					<form action="contact.php" method="POST">
 						<label for="name">Name:</label>
 						<input type="text" id="name" name="Name" required><br>
 

@@ -1,23 +1,19 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="scholarship.css">
+    <title>Contact</title>
+    <link rel="stylesheet" href="contact.css">
 </head>
 
 <body>
     <form action="#" method="POST">
         <table align="center">
-            <h1 align="center">Registration for Scholarship</h1>
+            <h1 align="center">Contact Information</h1>
             <hr>
-            <tr>
-                <td>ID: </td>
-                <td><input type="text" name="ID"></td>
-            </tr>
             <tr>
                 <td>Name: </td>
                 <td><input type="text" name="Name"></td>
@@ -27,24 +23,8 @@
                 <td><input type="text" name="Email"></td>
             </tr>
             <tr>
-                <td>Contact: </td>
-                <td><input type="text" name="Contact"></td>
-            </tr>
-            <tr>
-                <td>CGPA: </td>
-                <td><input type="number" step="0.01" name="CGPA"></td>
-            </tr>
-            <tr>
-                <td>Major: </td>
-                <td><input type="text" name="Major"></td>
-            </tr>
-            <tr>
-                <td>University: </td>
-                <td><input type="text" name="University"></td>
-            </tr>
-            <tr>
-                <td>Country: </td>
-                <td><input type="text" name="Country"></td>
+                <td>Message: </td>
+                <td><input type="text" name="Message"></td>
             </tr>
             <tr>
                 <td colspan="2">
@@ -55,29 +35,25 @@
                 </td>
             </tr>
         </table>
-    </form>
+    </form> -->
+
 <?php
     if (isset($_POST['submit'])) {
-        $ID = $_POST['ID'];
         $Name = $_POST['Name'];
         $Email = $_POST['Email'];
-        $Contact = $_POST['Contact'];
-        $CGPA = $_POST['CGPA'];
-        $Major = $_POST['Major'];
-        $University = $_POST['University'];
-        $Country = $_POST['Country'];
+        $Message = $_POST['Message'];
 
         $host = 'localhost';
         $user = 'root';
         $pass = '';
-        $dbname = 'scholarship';
+        $dbname = 'contact';
 
         $connect = mysqli_connect($host, $user, $pass, $dbname);
 
         // Prepare the SQL statement using prepared statements to prevent SQL injection
-        $sql = "INSERT INTO info (ID, Name, Email, Contact, CGPA, Major, University, Country) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO information (Name, Email, Message) VALUES (?, ?, ?)";
         $stmt = mysqli_prepare($connect, $sql);
-        mysqli_stmt_bind_param($stmt, "isssdsss", $ID, $Name, $Email, $Contact, $CGPA, $Major, $University, $Country);
+        mysqli_stmt_bind_param($stmt, "sss", $Name, $Email, $Message);
 
         if (mysqli_stmt_execute($stmt)) {
             echo 'Record inserted successfully';
@@ -90,26 +66,21 @@
     }
 
     if (isset($_POST['update'])) {
-        $ID = $_POST['ID'];
         $Name = $_POST['Name'];
         $Email = $_POST['Email'];
-        $Contact = $_POST['Contact'];
-        $CGPA = $_POST['CGPA'];
-        $Major = $_POST['Major'];
-        $University = $_POST['University'];
-        $Country = $_POST['Country'];
+        $Message = $_POST['Message'];
 
         $host = 'localhost';
         $user = 'root';
         $pass = '';
-        $dbname = 'scholarship';
+        $dbname = 'contact';
 
         $connect = mysqli_connect($host, $user, $pass, $dbname);
 
         // Prepare the SQL statement using prepared statements to prevent SQL injection
-        $sql = "UPDATE info SET Name = ?, Email = ?, Contact = ?, CGPA = ?, Major = ?, University = ?, Country = ? WHERE ID = ?";
+        $sql = "UPDATE information SET Name = ?, Message = ? WHERE Email = ?";
         $stmt = mysqli_prepare($connect, $sql);
-        mysqli_stmt_bind_param($stmt, "sssdsssi", $Name, $Email, $Contact, $CGPA, $Major, $University, $Country, $ID);
+        mysqli_stmt_bind_param($stmt, "sss", $Name, $Message, $Email);
 
         if (mysqli_stmt_execute($stmt)) {
             echo 'Record updated successfully';
@@ -125,42 +96,41 @@
         $host = 'localhost';
         $user = 'root';
         $pass = '';
-        $dbname = 'scholarship';
+        $dbname = 'contact';
 
         $connect = mysqli_connect($host, $user, $pass, $dbname);
 
-        // Retrieve all records from the "info" table
-        $sql = "SELECT * FROM info";
+        // Retrieve all records from the "information" table
+        $sql = "SELECT * FROM information";
         $result = mysqli_query($connect, $sql);
 
+        if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
-                echo "ID: " . $row['ID'] . "<br>";
                 echo "Name: " . $row['Name'] . "<br>";
                 echo "Email: " . $row['Email'] . "<br>";
-                echo "Contact: " . $row['Contact'] . "<br>";
-                echo "CGPA: " . $row['CGPA'] . "<br>";
-                echo "Major: " . $row['Major'] . "<br>";
-                echo "University: " . $row['University'] . "<br>";
-                echo "Country: " . $row['Country'] . "<br>";
+                echo "Message: " . $row['Message'] . "<br>";
                 echo "----------------------<br>";
             }
+        } else {
+            echo "No records found";
+        }
 
         mysqli_close($connect);
     }
 
     if (isset($_POST['delete'])) {
-        $ID = $_POST['ID'];
+        $Email = $_POST['Email'];
 
         $host = 'localhost';
         $user = 'root';
         $pass = '';
-        $dbname = 'scholarship';
+        $dbname = 'contact';
 
         $connect = mysqli_connect($host, $user, $pass, $dbname);
 
-        $sql = "DELETE FROM info WHERE ID = ?";
+        $sql = "DELETE FROM information WHERE Email = ?";
         $stmt = mysqli_prepare($connect, $sql);
-        mysqli_stmt_bind_param($stmt, "i", $ID);
+        mysqli_stmt_bind_param($stmt, "s", $Email);
 
         if (mysqli_stmt_execute($stmt)) {
             echo 'Record deleted successfully';
@@ -170,13 +140,6 @@
         mysqli_stmt_close($stmt);
         mysqli_close($connect);
     }
-?>
-
-
-
+    ?>
 </body>
 </html>
-
-
-
-

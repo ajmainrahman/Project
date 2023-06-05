@@ -1,6 +1,7 @@
 // Search Funcation
 function search() {
     var searchInput = document.getElementById("search-input").value;
+    var searchInput = document.getElementById("countrylist").value;
     alert("Performing search for: " + searchInput);
     // Perform search operation based on the searchInput value
 }

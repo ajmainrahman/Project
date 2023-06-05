@@ -287,20 +287,21 @@
 	</footer>
 	<script src="Higher.js"></script>
 <?php
-session_start();
+	session_start();
 
-// Check if the user is already logged in
-if (isset($_SESSION['user_id'])) {
-    // User is already logged in, show logout link
-    echo '<div class="user-actions">
+	// Check if the user is already logged in
+	if (isset($_SESSION['user_id'])) {
+		// User is already logged in, show logout link
+		echo '<div class="user-actions">
             <a href="logout.php">Logout</a>
             </div>';
-} else {
-    // User is not logged in, show login link
-    echo '<div class="user-actions">
+	} else {
+		// User is not logged in, show login link
+		echo '<div class="user-actions">
             <a href="login.php">Login</a>
             </div>';
-}
+	}
 ?>
 </body>
+
 </html>

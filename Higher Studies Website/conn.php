@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -25,7 +25,7 @@
     </div>
 </body>
 
-</html>
+</html> -->
 
 <?php
 if (isset($_POST['submit'])) {

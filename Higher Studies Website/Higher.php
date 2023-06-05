@@ -46,7 +46,7 @@
 					<h2>Welcome to Scholarship Hub</h2>
 					<p style="text-align: justify;">A higher studies website is a platform that provides information
 						about various scholarships, study programs, and opportunities for students to pursue their
-						higher education goals.Higher studies refer to educational pursuits beyond the secondary level,
+						higher education goals. Higher studies refer to educational pursuits beyond the secondary level,
 						typically at the undergraduate or graduate level. These studies provide individuals with
 						specialized knowledge and skills in their chosen fields and open up opportunities for career
 						advancement and personal growth. Higher studies encompass a wide range of disciplines, including

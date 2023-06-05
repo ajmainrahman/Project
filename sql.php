@@ -12,7 +12,7 @@
 <body>
     <form action="#" method="POST">
         <table align="center">
-            <h1 align="center">User Form</h1>
+            <h1 align="center">Registration for Scholarship</h1>
             <hr>
             <tr>
                 <td>ID: </td>
@@ -32,11 +32,11 @@
             </tr>
             <tr>
                 <td>CGPA: </td>
-                <td><input type="number" name="CGPA"></td>
+                <td><input type="number" step="0.01" name="CGPA"></td>
             </tr>
             <tr>
                 <td>Major: </td>
-                <td><input type="number" name="Major"></td>
+                <td><input type="text" name="Major"></td>
             </tr>
             <tr>
                 <td>University: </td>
@@ -76,9 +76,9 @@
         $connect = mysqli_connect($host, $user, $pass, $dbname);
 
         // Prepare the SQL statement using prepared statements to prevent SQL injection
-        $sql = "INSERT INTO portal (ID, Name, Email, Contact, CGPA, Major, University, Country) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO info (ID, Name, Email, Contact, CGPA, Major, University, Country) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($connect, $sql);
-        mysqli_stmt_bind_param($stmt, "sssdss", $ID, $Name, $Email, $Contact, $CGPA, $Major, $University, $Country);
+        mysqli_stmt_bind_param($stmt, "isssdsss", $ID, $Name, $Email, $Contact, $CGPA, $Major, $University, $Country);
 
         if (mysqli_stmt_execute($stmt)) {
             echo 'Record inserted successfully';
@@ -108,12 +108,14 @@
         $connect = mysqli_connect($host, $user, $pass, $dbname);
 
         // Prepare the SQL statement using prepared statements to prevent SQL injection
-        $sql = "UPDATE portal SET Name = '$Name', Email = '$Email', Contact = '$Contact', CGPA = '$CGPA', Major = '$Major', University = '$University', Country = '$Country' WHERE ID = '$ID'";
+        $sql = "UPDATE info SET Name = ?, Email = ?, Contact = ?, CGPA = ?, Major = ?, University = ?, Country = ? WHERE ID = ?";
         $stmt = mysqli_prepare($connect, $sql);
-        // mysqli_stmt_bind_param($stmt, $Name, $Email, $CGPA, $University, $Country, $ID);
-    
+        mysqli_stmt_bind_param($stmt, "sssdsssi", $Name, $Email, $Contact, $CGPA, $Major, $University, $Country, $ID);
+
         if (mysqli_stmt_execute($stmt)) {
             echo 'Record updated successfully';
+        } else {
+            echo 'Error updating record: ' . mysqli_error($connect);
         }
 
         mysqli_stmt_close($stmt);
@@ -128,16 +130,18 @@
 
         $connect = mysqli_connect($host, $user, $pass, $dbname);
 
-        // Retrieve all records from the "portal" table
-        $sql = "SELECT * FROM portal";
+        // Retrieve all records from the "info" table
+        $sql = "SELECT * FROM info";
         $result = mysqli_query($connect, $sql);
 
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
-                echo "Name: " . $row['Name'] . "<br>";
                 echo "ID: " . $row['ID'] . "<br>";
+                echo "Name: " . $row['Name'] . "<br>";
                 echo "Email: " . $row['Email'] . "<br>";
+                echo "Contact: " . $row['Contact'] . "<br>";
                 echo "CGPA: " . $row['CGPA'] . "<br>";
+                echo "Major: " . $row['Major'] . "<br>";
                 echo "University: " . $row['University'] . "<br>";
                 echo "Country: " . $row['Country'] . "<br>";
                 echo "----------------------<br>";
@@ -159,22 +163,20 @@
 
         $connect = mysqli_connect($host, $user, $pass, $dbname);
 
-        // Delete record from the "portal" table based on the ID
-        $sql = "DELETE FROM portal WHERE ID = ?";
+        $sql = "DELETE FROM info WHERE ID = ?";
         $stmt = mysqli_prepare($connect, $sql);
         mysqli_stmt_bind_param($stmt, "i", $ID);
 
         if (mysqli_stmt_execute($stmt)) {
             echo 'Record deleted successfully';
+        } else {
+            echo 'Error deleting record: ' . mysqli_error($connect);
         }
+        
+        mysqli_stmt_close($stmt);
+        mysqli_close($connect);
     }
     ?>
-    #JS CODE
+</body>
 
-    function check() {
-    var pass = document.getElementById("pass1").value;
-    var pass2 = document.getElementById("pass2").value;
-    if (pass.length < 8 || pass.length < 8) {
-        document.getElementById("info2").innerHTML="Passwords must be at least 8 characters long." ; } else { if
-        (pass===pass2) { document.getElementById("info1").innerHTML="Logged in" ; } else {
-        document.getElementById("info2").innerHTML="Please try Again" ; } } }
+</html>

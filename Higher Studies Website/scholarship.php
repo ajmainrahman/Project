@@ -172,11 +172,9 @@
         } else {
             echo 'Error deleting record: ' . mysqli_error($connect);
         }
-        
         mysqli_stmt_close($stmt);
         mysqli_close($connect);
     }
-    ?>
+?>
 </body>
-
 </html>

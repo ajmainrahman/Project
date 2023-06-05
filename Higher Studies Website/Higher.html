@@ -46,7 +46,7 @@
 					<h2>Welcome to Scholarship Hub</h2>
 					<p style="text-align: justify;">A higher studies website is a platform that provides information
 						about various scholarships, study programs, and opportunities for students to pursue their
-						higher education goals.Higher studies refer to educational pursuits beyond the secondary level,
+						higher education goals. Higher studies refer to educational pursuits beyond the secondary level,
 						typically at the undergraduate or graduate level. These studies provide individuals with
 						specialized knowledge and skills in their chosen fields and open up opportunities for career
 						advancement and personal growth. Higher studies encompass a wide range of disciplines, including
@@ -130,8 +130,6 @@
 			</ul>
 		</section>
 
-
-
 		<section id="scholarship">
 			<h2>Top Scholarship</h2>
 			<p>Explore our top scholarship opportunities for students who aspire to pursue higher studies. These
@@ -152,7 +150,7 @@
 						<p class="scholarship-eligibility">Eligibility: Lorem ipsum dolor sit amet, consectetur
 							adipiscing elit.</p>
 						<p class="scholarship-deadline">Application Deadline: June 30, 2023</p>
-						<a href="#" class="scholarship-apply-button">Apply Now</a>
+						<a href="scholarship.php" class="scholarship-apply-button">Apply Now</a>
 					</div>
 				</li>
 				<li>
@@ -167,7 +165,7 @@
 						<p class="scholarship-eligibility">Eligibility: Lorem ipsum dolor sit amet, consectetur
 							adipiscing elit.</p>
 						<p class="scholarship-deadline">Application Deadline: July 15, 2023</p>
-						<a href="#" class="scholarship-apply-button">Apply Now</a>
+						<a href="scholarship.php" class="scholarship-apply-button">Apply Now</a>
 					</div>
 				</li>
 				<!-- Add more scholarship list items as needed -->
@@ -286,6 +284,22 @@
 		<p>&copy; 2023 Your University. All rights reserved.</p>
 	</footer>
 	<script src="Higher.js"></script>
+	<!-- <?php
+	session_start();
+
+	// Check if the user is already logged in
+	if (isset($_SESSION['user_id'])) {
+		// User is already logged in, show logout link
+		echo '<div class="user-actions">
+            <a href="logout.php">Logout</a>
+            </div>';
+	} else {
+		// User is not logged in, show login link
+		echo '<div class="user-actions">
+            <a href="login.php">Login</a>
+            </div>';
+	}
+?> -->
 </body>
 
 </html>

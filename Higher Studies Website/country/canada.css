@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.university-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.university-list li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.university-rank {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-right: 10px;
+    background-color: #f2f2f2;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.university-info {
+    flex-grow: 1;
+}
+
+.university-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.university-address {
+    font-size: 14px;
+    color: #777;
+}
+
+.university-website {
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.university-website:hover {
+    text-decoration: underline;
+}
